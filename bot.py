@@ -225,6 +225,10 @@ def check(search_url, seen):
 
 
 def main():
+    if not TOKEN:
+        sys.exit("Пустой TELEGRAM_TOKEN: добавьте его в Settings → Secrets and variables → Actions → Secrets → Repository secrets.")
+    if not CHAT_ID:
+        sys.exit("Пустой CHAT_ID: добавьте его в Settings → Secrets and variables → Actions → Secrets → Repository secrets.")
     if not SEARCH_URLS:
         sys.exit("Не задана ссылка поиска (переменная SEARCH_URL).")
     seen = load_seen()
