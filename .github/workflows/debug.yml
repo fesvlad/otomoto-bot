@@ -1,0 +1,29 @@
+name: Debug dump
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  dump:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - run: python tools/debug_dump.py
+        env:
+          SEARCH_URL: ${{ vars.SEARCH_URL }}
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan debug-dump
+          git rm -rq --cached .
+          git add dump
+          git commit -qm "debug dump"
+          git push -f origin debug-dump
