@@ -347,17 +347,28 @@ def local_time(iso):
         return None
 
 
-def ad_card(ad, compare, details):
+HEADERS_RU = {
+    "new": "🆕 <b>НОВОЕ ОБЪЯВЛЕНИЕ</b>",
+    "drop": "📉 <b>СНИЖЕНИЕ ЦЕНЫ</b> · объявление уже было",
+    "test": "🧪 <b>ТЕСТОВЫЙ ПРОСМОТР</b> · не новое, проверка вида карточки",
+}
+
+
+def ad_card(ad, compare, details, kind="new", old_price=None):
     hot = bool(compare and compare["diff"] <= HOT_DISCOUNT) or (
         ad.get("evaluation") == "BELOW" and (compare is None or compare["diff"] <= 0))
     title = ad["title"] or "Новое объявление"
     version = details.get("version")
     if version and version.lower() not in title.lower():
         title = f"{title} {version}"
-    lines = [f"{'🔥 ' if hot else '🚗 '}<b>{esc(title)}</b>"]
+    lines = [HEADERS_RU[kind], f"{'🔥 ' if hot else '🚗 '}<b>{esc(title)}</b>"]
 
     if ad["price"]:
         price_line = f"💰 <b>{money(ad['price'], ad['currency'])}</b>"
+        if old_price:
+            diff = old_price - ad["price"]
+            price_line = (f"💰 было {money(old_price)} → стало <b>{money(ad['price'], ad['currency'])}</b>"
+                          f" (−{money(diff)}, −{round(diff / old_price * 100)}%)")
         lines.append(price_line)
     evaluation = {"BELOW": "ниже рынка ✅", "IN": "в рынке", "ABOVE": "выше рынка"}.get(ad.get("evaluation"))
     if evaluation:
@@ -401,10 +412,10 @@ def ad_card(ad, compare, details):
     return "\n".join(lines), hot
 
 
-def send_new_ad(ad, market):
+def send_new_ad(ad, market, kind="new"):
     compare = market_compare(ad, market)
     details = fetch_details(ad)
-    text, hot = ad_card(ad, compare, details)
+    text, hot = ad_card(ad, compare, details, kind=kind)
     send(text, photo=ad.get("photo"), button_url=ad["url"], silent=not hot)
 
 
@@ -419,18 +430,8 @@ def worthy_after_drop(ad, market):
 
 
 def send_price_drop(ad, old_price, market):
-    diff = old_price - ad["price"]
-    lines = [
-        f"📉 <b>Снижение цены: {esc(ad['title'] or '')}</b>",
-        f"было {money(old_price)} → стало <b>{money(ad['price'], ad['currency'])}</b> (−{money(diff)}, −{round(diff / old_price * 100)}%)",
-    ]
-    specs = [s for s in (param_value(ad, "year"), f"{param_int(ad, 'mileage'):,} км".replace(",", " ") if param_int(ad, "mileage") else None, ad.get("city")) if s]
-    if specs:
-        lines.append(esc(" · ".join(specs)))
-    evaluation = {"BELOW": "ниже рынка ✅", "IN": "в рынке"}.get(ad.get("evaluation"))
-    if evaluation:
-        lines.append(f"📊 Оценка Otomoto: {evaluation}")
-    send("\n".join(lines), photo=ad.get("photo"), button_url=ad["url"], silent=False)
+    text, _ = ad_card(ad, market_compare(ad, market), fetch_details(ad), kind="drop", old_price=old_price)
+    send(text, photo=ad.get("photo"), button_url=ad["url"], silent=False)
 
 
 # ---------- состояние ----------
@@ -561,8 +562,7 @@ def main():
         # Пример карточки по самому свежему объявлению, без изменения состояния
         ads, _ = parse_search(get(search_page_url(SEARCH_URLS[0])))
         ad = max(ads, key=lambda a: a.get("created") or "")
-        send("🧪 <b>Пример карточки</b> (это не новое объявление, а демонстрация):")
-        send_new_ad(ad, state["market"])
+        send_new_ad(ad, state["market"], kind="test")
         return
     failed = False
     for search_url in SEARCH_URLS:
