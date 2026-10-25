@@ -244,7 +244,7 @@ def fetch_details(ad):
 
     good = []
     for key, label in [("no_accident", "без аварий"), ("original_owner", "первый владелец"),
-                       ("service_record", "сервисная история"), ("registered", "зарегистрирован в PL")]:
+                       ("service_record", "сервисная история")]:
         if params.get(key) == "Tak":
             good.append(label)
 
@@ -254,7 +254,19 @@ def fetch_details(ad):
         "warnings": warnings,
         "good": good,
         "version": params.get("version"),
+        "registered_pl": registered_pl(params),
     }
+
+
+def registered_pl(params):
+    if params.get("registered") == "Tak":
+        return "да ✅"
+    if params.get("registered") == "Nie":
+        return "нет ❗"
+    # Otomoto не показывает пункт, если продавец его не отметил
+    if params.get("is_imported_car") == "Tak":
+        return "нет или не указано ❗ (машина привезена)"
+    return "не указано"
 
 
 # ---------- оценка цены ----------
@@ -368,6 +380,8 @@ def ad_card(ad, compare, details):
     if details.get("country"):
         note = f" ({details['country_note']})" if details.get("country_note") else ""
         lines.append(f"🌍 Откуда: <b>{esc(details['country'])}</b>{esc(note)}")
+    if details.get("registered_pl"):
+        lines.append(f"🇵🇱 Регистрация в Польше: <b>{esc(details['registered_pl'])}</b>")
     who = [f"👤 {ad['seller']}"] if ad.get("seller") else []
     who += [f"✅ {g}" for g in details.get("good", [])]
     if who:
