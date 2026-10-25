@@ -346,15 +346,6 @@ def ad_card(ad, compare, details):
 
     if ad["price"]:
         price_line = f"💰 <b>{money(ad['price'], ad['currency'])}</b>"
-        if compare:
-            pct = round(compare["diff"] * 100)
-            if pct < 0:
-                price_line += f" · на {abs(pct)}% дешевле похожих"
-            elif pct > 0:
-                price_line += f" · на {pct}% дороже похожих"
-            else:
-                price_line += " · как у похожих"
-            price_line += f" ({compare['count']} шт., медиана {money(compare['median'])})"
         lines.append(price_line)
     evaluation = {"BELOW": "ниже рынка ✅", "IN": "в рынке", "ABOVE": "выше рынка"}.get(ad.get("evaluation"))
     if evaluation:
@@ -411,15 +402,11 @@ def worthy_after_drop(ad, market):
 
 
 def send_price_drop(ad, old_price, market):
-    compare = market_compare(ad, market)
     diff = old_price - ad["price"]
     lines = [
         f"📉 <b>Снижение цены: {esc(ad['title'] or '')}</b>",
         f"было {money(old_price)} → стало <b>{money(ad['price'], ad['currency'])}</b> (−{money(diff)}, −{round(diff / old_price * 100)}%)",
     ]
-    if compare:
-        pct = round(compare["diff"] * 100)
-        lines.append(f"Теперь {'на ' + str(abs(pct)) + '% дешевле' if pct < 0 else 'на ' + str(pct) + '% дороже' if pct > 0 else 'как у'} похожих ({compare['count']} шт.)")
     specs = [s for s in (param_value(ad, "year"), f"{param_int(ad, 'mileage'):,} км".replace(",", " ") if param_int(ad, "mileage") else None, ad.get("city")) if s]
     if specs:
         lines.append(esc(" · ".join(specs)))
