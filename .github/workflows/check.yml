@@ -2,7 +2,7 @@ name: Проверка Otomoto
 
 on:
   schedule:
-    - cron: "*/10 * * * *"   # каждые 10 минут (GitHub иногда опаздывает на несколько минут)
+    - cron: "*/10 * * * *"   # запасной запуск; основной — каждые 2 минуты через cron-job.org
   workflow_dispatch:          # кнопка «Run workflow» для ручного запуска
 
 permissions:
@@ -40,5 +40,6 @@ jobs:
           git add seen.json || true
           if ! git diff --cached --quiet; then
             git commit -m "Обновить список виденных объявлений"
+            git pull --rebase -X theirs origin main || true
             git push
           fi
