@@ -26,7 +26,9 @@ MAX_SEND_PER_RUN = 15
 NEW_AD_MAX_AGE = timedelta(hours=48)     # объявления старше считаем «старыми», даже если не видели их раньше
 MARKET_KEEP_DAYS = 30
 HOT_DISCOUNT = -0.08                     # на 8% дешевле похожих = 🔥
-MIN_PRICE_DROP = 500                     # PLN, меньшие изменения цены не присылаем
+# Снижение цены присылаем, только если оно крупное И машина после него не дороже похожих.
+MIN_DROP_PLN = 3000
+MIN_DROP_SHARE = 0.03
 TZ = ZoneInfo("Europe/Warsaw")
 
 HEADERS = {
@@ -398,12 +400,22 @@ def send_new_ad(ad, market):
     send(text, photo=ad.get("photo"), button_url=ad["url"], silent=not hot)
 
 
+def worthy_after_drop(ad, market):
+    """После снижения машина не дороже похожих или Otomoto считает цену ниже рынка."""
+    if ad.get("evaluation") == "BELOW":
+        return True
+    compare = market_compare(ad, market)
+    if compare:
+        return compare["diff"] <= 0
+    return ad.get("evaluation") == "IN"
+
+
 def send_price_drop(ad, old_price, market):
     compare = market_compare(ad, market)
     diff = old_price - ad["price"]
     lines = [
         f"📉 <b>Снижение цены: {esc(ad['title'] or '')}</b>",
-        f"было {money(old_price)} → стало <b>{money(ad['price'], ad['currency'])}</b> (−{money(diff, '')}PLN, −{round(diff / old_price * 100)}%)",
+        f"было {money(old_price)} → стало <b>{money(ad['price'], ad['currency'])}</b> (−{money(diff)}, −{round(diff / old_price * 100)}%)",
     ]
     if compare:
         pct = round(compare["diff"] * 100)
@@ -411,8 +423,10 @@ def send_price_drop(ad, old_price, market):
     specs = [s for s in (param_value(ad, "year"), f"{param_int(ad, 'mileage'):,} км".replace(",", " ") if param_int(ad, "mileage") else None, ad.get("city")) if s]
     if specs:
         lines.append(esc(" · ".join(specs)))
-    hot = bool(compare and compare["diff"] <= HOT_DISCOUNT)
-    send("\n".join(lines), photo=ad.get("photo"), button_url=ad["url"], silent=not hot)
+    evaluation = {"BELOW": "ниже рынка ✅", "IN": "в рынке"}.get(ad.get("evaluation"))
+    if evaluation:
+        lines.append(f"📊 Оценка Otomoto: {evaluation}")
+    send("\n".join(lines), photo=ad.get("photo"), button_url=ad["url"], silent=False)
 
 
 # ---------- состояние ----------
@@ -491,11 +505,16 @@ def check(search_url, state, now):
             else:
                 known[ad["key"]] = ad["price"]  # старое объявление, просто запоминаем
         elif ad["price"] is not None:
-            old = known[ad["key"]]
-            if old is not None and old - ad["price"] >= MIN_PRICE_DROP:
-                drops.append((ad, old))
-            if old != ad["price"]:
-                known[ad["key"]] = ad["price"]
+            # known[...] = опорная цена: при первом виде или при последнем сообщении о снижении.
+            ref = known[ad["key"]]
+            price = ad["price"]
+            if ref is None or price > ref:
+                known[ad["key"]] = price  # цену подняли: считаем снижения от новой цены
+            elif ref - price >= MIN_DROP_PLN and (ref - price) / ref >= MIN_DROP_SHARE:
+                if worthy_after_drop(ad, state["market"]):
+                    drops.append((ad, ref))
+                    known[ad["key"]] = price
+                # иначе опорную цену не трогаем: снижения копятся, пока вариант не станет достойным
     print(f"Новых: {len(new_ads)}, снижений цены: {len(drops)}")
 
     new_ads.sort(key=lambda a: a.get("created") or "")
