@@ -10,8 +10,8 @@ from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 import requests
 
-TOKEN = os.environ["TELEGRAM_TOKEN"]
-CHAT_ID = os.environ["CHAT_ID"]
+TOKEN = os.environ["TELEGRAM_TOKEN"].strip()
+CHAT_ID = os.environ["CHAT_ID"].strip()
 # Можно указать несколько ссылок, каждую с новой строки.
 SEARCH_URLS = [u.strip() for u in os.environ.get("SEARCH_URL", "").split() if u.strip()]
 
@@ -155,14 +155,23 @@ def send_ad(ad):
             return
     r = telegram("sendMessage", {"chat_id": CHAT_ID, "text": text, "parse_mode": "HTML"})
     if not r.ok:
-        raise RuntimeError(f"Telegram error: {r.status_code} {r.text}")
+        raise RuntimeError(telegram_error(r))
 
 
 def send_text(text):
     r = telegram("sendMessage", {"chat_id": CHAT_ID, "text": text, "parse_mode": "HTML",
                                  "disable_web_page_preview": "true"})
     if not r.ok:
-        raise RuntimeError(f"Telegram error: {r.status_code} {r.text}")
+        raise RuntimeError(telegram_error(r))
+
+
+def telegram_error(r):
+    hint = ""
+    if r.status_code in (401, 404):
+        hint = " (неверный TELEGRAM_TOKEN: проверьте секрет, без пробелов и без слова bot в начале)"
+    elif r.status_code in (400, 403):
+        hint = " (проверьте CHAT_ID и что бот добавлен в группу)"
+    return f"Telegram error: {r.status_code} {r.text}{hint}"
 
 
 # ---------- состояние ----------
@@ -195,9 +204,10 @@ def check(search_url, seen):
     known = seen.get(search_url)
     if known is None:
         # Первый запуск для этой ссылки: просто запоминаем всё, что уже есть.
-        seen[search_url] = [ad_key(a["url"]) for a in ads]
+        # Сначала сообщение, потом запоминаем: если Telegram не ответил, попробуем снова в следующий раз.
         send_text(f"✅ Бот запущен и следит за поиском.\nСейчас в выдаче {len(ads)} объявлений. "
                   f"Буду присылать только новые.\n\n{html.escape(search_url)}")
+        seen[search_url] = [ad_key(a["url"]) for a in ads]
         return
 
     known_set = set(known)
