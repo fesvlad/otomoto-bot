@@ -371,6 +371,9 @@ def ad_card(ad, compare, details):
     fuel = ad["params"].get("fuel_type", {}).get("displayValue")
     if fuel:
         specs.append(f"⛽ {FUEL_RU.get(fuel, fuel)}")
+    cc = param_int(ad, "engine_capacity")
+    if cc:
+        specs.append(f"🔧 {cc / 1000:.1f} л")
     power = ad["params"].get("engine_power", {}).get("displayValue")
     if power:
         specs.append(f"⚙️ {power.replace('KM', 'л.с.')}")
