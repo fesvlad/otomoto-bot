@@ -557,6 +557,13 @@ def main():
         sys.exit("Не задана ссылка поиска (переменная SEARCH_URL).")
     now = datetime.now(timezone.utc)
     state = load_state()
+    if "--demo" in sys.argv:
+        # Пример карточки по самому свежему объявлению, без изменения состояния
+        ads, _ = parse_search(get(search_page_url(SEARCH_URLS[0])))
+        ad = max(ads, key=lambda a: a.get("created") or "")
+        send("🧪 <b>Пример карточки</b> (это не новое объявление, а демонстрация):")
+        send_new_ad(ad, state["market"])
+        return
     failed = False
     for search_url in SEARCH_URLS:
         try:
