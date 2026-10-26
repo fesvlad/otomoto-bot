@@ -382,7 +382,7 @@
 "a3-sportback",
 2023,
 122518,
-78800,
+77800,
 "2026-10-26"
 ],
 "www.otomoto.pl/osobowe/oferta/audi-a3-sportback-id6igzee.html": [
@@ -910,6 +910,13 @@
 105000,
 "2026-10-26"
 ],
+"www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6ig4dr.html": [
+"seria-2",
+2024,
+43514,
+119900,
+"2026-10-26"
+],
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6igcvu.html": [
 "seria-2",
 2021,
@@ -1104,6 +1111,13 @@
 2023,
 44000,
 75000,
+"2026-10-26"
+],
+"www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6iiuj4.html": [
+"seria-2",
+2023,
+42112,
+99950,
 "2026-10-26"
 ],
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-olx_id6ihoc0.html": [
@@ -2045,6 +2059,7 @@
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6iettm.html": 76700,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6if8bk.html": 104900,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6ifvjt.html": 114500,
+"www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6ig4dr.html": 119900,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6igcvu.html": 87900,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6igfl1.html": 79500,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6igfo7.html": 104900,
@@ -2073,6 +2088,7 @@
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6iihjo.html": 102800,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6iil9b.html": 90000,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6iis0w.html": 75000,
+"www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6iiuj4.html": 99950,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-olx_id6ihoc0.html": 109999,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-3-id6gjcdx.html": 89900,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-3-id6hqc4a.html": 97000,
@@ -2189,7 +2205,7 @@
 "www.otomoto.pl/osobowe/oferta/bmw-seria-4-id6ii1pp.html": 109999,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-4-olx_id6ihdfq.html": 84900
 },
-"last_full_scan": "2026-10-26T12:23+00:00"
+"last_full_scan": "2026-10-26T13:24+00:00"
 }
 },
 "version": 2
