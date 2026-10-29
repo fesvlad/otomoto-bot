@@ -854,6 +854,13 @@
 102000,
 "2026-10-29"
 ],
+"www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6hyxbn.html": [
+"seria-2",
+2021,
+97700,
+75000,
+"2026-10-29"
+],
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6hzjmj.html": [
 "seria-2",
 2019,
@@ -2268,6 +2275,7 @@
 "www.otomoto.pl/osobowe/oferta/audi-a5-sportback-olx_id6iguei.html": 89500,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6hbuh0.html": 105000,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6htyyq.html": 102000,
+"www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6hyxbn.html": 75000,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6hzjmj.html": 115000,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6i66rg.html": 94999,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6i6dzb.html": 86995,
@@ -2453,7 +2461,7 @@
 "www.otomoto.pl/osobowe/oferta/bmw-seria-4-id6iiwk5.html": 99900,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-4-olx_id6ihdfq.html": 84900
 },
-"last_full_scan": "2026-10-29T12:38+00:00"
+"last_full_scan": "2026-10-29T13:38+00:00"
 }
 },
 "version": 2
