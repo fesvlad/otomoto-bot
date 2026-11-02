@@ -1463,6 +1463,13 @@
 100000,
 "2026-10-28"
 ],
+"www.otomoto.pl/osobowe/oferta/bmw-seria-3-id6idz6v.html": [
+"seria-3",
+2023,
+115505,
+121900,
+"2026-11-02"
+],
 "www.otomoto.pl/osobowe/oferta/bmw-seria-3-id6idzyp.html": [
 "seria-3",
 2019,
@@ -1481,7 +1488,7 @@
 "seria-3",
 2021,
 128000,
-112900,
+109900,
 "2026-11-02"
 ],
 "www.otomoto.pl/osobowe/oferta/bmw-seria-3-id6iex7l.html": [
@@ -2544,6 +2551,7 @@
 "www.otomoto.pl/osobowe/oferta/bmw-seria-3-id6icigc.html": 115000,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-3-id6idkqw.html": 110900,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-3-id6idsk9.html": 102000,
+"www.otomoto.pl/osobowe/oferta/bmw-seria-3-id6idz6v.html": 121900,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-3-id6idzyp.html": 116000,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-3-id6ieoia.html": 76900,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-3-id6iesks.html": 112900,
@@ -2669,7 +2677,7 @@
 "www.otomoto.pl/osobowe/oferta/bmw-seria-4-id6iizqe.html": 106000,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-4-olx_id6ihdfq.html": 84900
 },
-"last_full_scan": "2026-11-02T18:42+00:00"
+"last_full_scan": "2026-11-02T19:42+00:00"
 }
 },
 "version": 2
