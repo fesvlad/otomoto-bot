@@ -508,14 +508,14 @@
 "a3-sportback",
 2023,
 107375,
-81800,
+82500,
 "2026-11-03"
 ],
 "www.otomoto.pl/osobowe/oferta/audi-a3-sportback-id6ihhtv.html": [
 "a3-sportback",
 2023,
 77200,
-85500,
+86200,
 "2026-11-03"
 ],
 "www.otomoto.pl/osobowe/oferta/audi-a3-sportback-id6ihj57.html": [
@@ -627,7 +627,7 @@
 "a5-sportback",
 2018,
 129000,
-92900,
+89900,
 "2026-11-03"
 ],
 "www.otomoto.pl/osobowe/oferta/audi-a5-sportback-id6i78uz.html": [
@@ -1055,6 +1055,13 @@
 2018,
 42115,
 104900,
+"2026-11-03"
+],
+"www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6ifcej.html": [
+"seria-2",
+2022,
+89000,
+98000,
 "2026-11-03"
 ],
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6ifvjt.html": [
@@ -2421,8 +2428,8 @@
 "www.otomoto.pl/osobowe/oferta/audi-a3-sportback-id6ihegx.html": 99900,
 "www.otomoto.pl/osobowe/oferta/audi-a3-sportback-id6ihesj.html": 76900,
 "www.otomoto.pl/osobowe/oferta/audi-a3-sportback-id6ihg2c.html": 119999,
-"www.otomoto.pl/osobowe/oferta/audi-a3-sportback-id6ihhtp.html": 81800,
-"www.otomoto.pl/osobowe/oferta/audi-a3-sportback-id6ihhtv.html": 85500,
+"www.otomoto.pl/osobowe/oferta/audi-a3-sportback-id6ihhtp.html": 82500,
+"www.otomoto.pl/osobowe/oferta/audi-a3-sportback-id6ihhtv.html": 86200,
 "www.otomoto.pl/osobowe/oferta/audi-a3-sportback-id6ihj57.html": 99900,
 "www.otomoto.pl/osobowe/oferta/audi-a3-sportback-id6ihj5e.html": 99900,
 "www.otomoto.pl/osobowe/oferta/audi-a3-sportback-id6iho16.html": 114900,
@@ -2500,6 +2507,7 @@
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6ieqct.html": 99000,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6iettm.html": 76700,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6if8bk.html": 104900,
+"www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6ifcej.html": 98000,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6ifvjt.html": 114500,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6ig4dr.html": 119900,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6igcvu.html": 87900,
@@ -2685,7 +2693,7 @@
 "www.otomoto.pl/osobowe/oferta/bmw-seria-4-id6iizqe.html": 106000,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-4-olx_id6ihdfq.html": 84900
 },
-"last_full_scan": "2026-11-03T07:42+00:00"
+"last_full_scan": "2026-11-03T08:42+00:00"
 }
 },
 "version": 2
