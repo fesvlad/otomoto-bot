@@ -1526,6 +1526,13 @@
 119000,
 "2026-11-07"
 ],
+"www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6ijo0k.html": [
+"seria-2",
+2021,
+62000,
+92900,
+"2026-11-07"
+],
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-olx_id6ihoc0.html": [
 "seria-2",
 2020,
@@ -2896,6 +2903,7 @@
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6ijg3y.html": 119900,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6ijka9.html": 79000,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6ijlyj.html": 119000,
+"www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6ijo0k.html": 92900,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-olx_id6ihoc0.html": 109999,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-3-id6gjcdx.html": 89900,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-3-id6hqc4a.html": 97000,
@@ -3061,7 +3069,7 @@
 "www.otomoto.pl/osobowe/oferta/bmw-seria-4-id6ijcoc.html": 94000,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-4-olx_id6ihdfq.html": 84900
 },
-"last_full_scan": "2026-11-07T11:46+00:00"
+"last_full_scan": "2026-11-07T12:46+00:00"
 }
 },
 "version": 2
