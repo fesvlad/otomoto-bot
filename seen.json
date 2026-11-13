@@ -235,7 +235,7 @@
 "a3-limousine",
 2022,
 49061,
-119750,
+119700,
 "2026-11-13"
 ],
 "www.otomoto.pl/osobowe/oferta/audi-a3-limousine-id6iiicj.html": [
@@ -1096,7 +1096,7 @@
 "a5-sportback",
 2019,
 91000,
-109900,
+104900,
 "2026-11-13"
 ],
 "www.otomoto.pl/osobowe/oferta/audi-a5-sportback-id6ijkpm.html": [
@@ -1383,8 +1383,8 @@
 "seria-2",
 2021,
 87700,
-86465,
-"2026-11-02"
+80306,
+"2026-11-13"
 ],
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6igkep.html": [
 "seria-2",
@@ -1650,6 +1650,13 @@
 2024,
 14000,
 119000,
+"2026-11-13"
+],
+"www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6ijn1k.html": [
+"seria-2",
+2022,
+94092,
+79900,
 "2026-11-13"
 ],
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6ijo0k.html": [
@@ -3183,7 +3190,7 @@
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6igcvu.html": 87900,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6igfl1.html": 79500,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6igfo7.html": 104900,
-"www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6igiiv.html": 86465,
+"www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6igiiv.html": 80306,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6igkep.html": 94900,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6igrh6.html": 109900,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6igrnu.html": 99743,
@@ -3222,6 +3229,7 @@
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6ijjif.html": 79500,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6ijka9.html": 79000,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6ijlyj.html": 119000,
+"www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6ijn1k.html": 79900,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6ijo0k.html": 92900,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6ijpox.html": 109900,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-2-id6ijsot.html": 94900,
@@ -3413,7 +3421,7 @@
 "www.otomoto.pl/osobowe/oferta/bmw-seria-4-id6ijzfj.html": 111000,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-4-olx_id6ihdfq.html": 84900
 },
-"last_full_scan": "2026-11-13T10:40+00:00"
+"last_full_scan": "2026-11-13T11:40+00:00"
 }
 },
 "version": 2
