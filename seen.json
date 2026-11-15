@@ -1169,6 +1169,13 @@
 105900,
 "2026-11-15"
 ],
+"www.otomoto.pl/osobowe/oferta/audi-a5-sportback-id6ijuat.html": [
+"a5-sportback",
+2019,
+79000,
+96500,
+"2026-11-15"
+],
 "www.otomoto.pl/osobowe/oferta/audi-a5-sportback-id6ijujg.html": [
 "a5-sportback",
 2019,
@@ -3321,6 +3328,7 @@
 "www.otomoto.pl/osobowe/oferta/audi-a5-sportback-id6ijlkq.html": 110000,
 "www.otomoto.pl/osobowe/oferta/audi-a5-sportback-id6ijonk.html": 93999,
 "www.otomoto.pl/osobowe/oferta/audi-a5-sportback-id6ijp8b.html": 105900,
+"www.otomoto.pl/osobowe/oferta/audi-a5-sportback-id6ijuat.html": 96500,
 "www.otomoto.pl/osobowe/oferta/audi-a5-sportback-id6ijujg.html": 109900,
 "www.otomoto.pl/osobowe/oferta/audi-a5-sportback-id6ijx4r.html": 88900,
 "www.otomoto.pl/osobowe/oferta/audi-a5-sportback-olx_id6ibibg.html": 114000,
@@ -3605,7 +3613,7 @@
 "www.otomoto.pl/osobowe/oferta/bmw-seria-4-id6ijzfj.html": 111000,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-4-olx_id6ihdfq.html": 84900
 },
-"last_full_scan": "2026-11-15T17:40+00:00"
+"last_full_scan": "2026-11-15T18:40+00:00"
 }
 },
 "version": 2
