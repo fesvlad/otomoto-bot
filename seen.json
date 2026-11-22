@@ -406,6 +406,13 @@
 75000,
 "2026-11-22"
 ],
+"www.otomoto.pl/osobowe/oferta/audi-a3-limousine-id6ikrdl.html": [
+"a3-limousine",
+2020,
+41303,
+88000,
+"2026-11-22"
+],
 "www.otomoto.pl/osobowe/oferta/audi-a3-limousine-olx_id6ign9p.html": [
 "a3-limousine",
 2019,
@@ -3702,6 +3709,7 @@
 "www.otomoto.pl/osobowe/oferta/audi-a3-limousine-id6ikcyv.html": 89900,
 "www.otomoto.pl/osobowe/oferta/audi-a3-limousine-id6ikh98.html": 92700,
 "www.otomoto.pl/osobowe/oferta/audi-a3-limousine-id6ikofa.html": 75000,
+"www.otomoto.pl/osobowe/oferta/audi-a3-limousine-id6ikrdl.html": 88000,
 "www.otomoto.pl/osobowe/oferta/audi-a3-limousine-olx_id6ign9p.html": 76500,
 "www.otomoto.pl/osobowe/oferta/audi-a3-limousine-olx_id6igwe9.html": 121644,
 "www.otomoto.pl/osobowe/oferta/audi-a3-limousine-olx_id6igygo.html": 79700,
@@ -4165,7 +4173,7 @@
 "www.otomoto.pl/osobowe/oferta/bmw-seria-4-id6iklsx.html": 99000,
 "www.otomoto.pl/osobowe/oferta/bmw-seria-4-olx_id6ihdfq.html": 84900
 },
-"last_full_scan": "2026-11-22T20:01+00:00"
+"last_full_scan": "2026-11-22T21:01+00:00"
 }
 },
 "version": 2
